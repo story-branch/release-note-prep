@@ -5,5 +5,5 @@ gem install -N github_api
 echo '::endgroup::'
 
 echo '::group:: Running script'
-ruby /release_notes.rb
+echo "::set-output name=changelog::$(ruby /release_notes.rb)"
 echo '::endgroup::'
