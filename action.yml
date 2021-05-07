@@ -1,0 +1,23 @@
+# action.yml
+
+# GitHub will build an image from your Dockerfile,
+# and run commands in a new container using this image.
+name: 'Hello World'
+description: 'Greet someone and record the time'
+# used to pass inputs to the docker container. those will then be passed through
+# the args
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+# In order for GitHub to recognize output variables, you must use a workflow
+# command in a specific syntax: echo "::set-output name=<output name>::<value>"
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
