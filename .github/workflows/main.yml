@@ -10,6 +10,7 @@ jobs:
       uses: rpbaltazar/release-note-prep@building-github-action-for-script
       with:
         github_token: ${{ secrets.github_token }}
+        github_repo: ${{ github.repository }}
     # Use the output from the `hello` step
     - name: Get the generated changelog
       run: echo "Prepare release result ${{ steps.prepare_changelog.outputs.changelog }}"
