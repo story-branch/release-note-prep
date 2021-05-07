@@ -13,11 +13,6 @@ inputs:
   github_repo:
     description: 'GITHUB_REPO'
     required: true
-# In order for GitHub to recognize output variables, you must use a workflow
-# command in a specific syntax: echo "::set-output name=<output name>::<value>"
-outputs:
-  changelog: # id of output
-    description: 'The generated changelog'
 runs:
   using: 'docker'
   image: 'Dockerfile'
