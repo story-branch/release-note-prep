@@ -19,7 +19,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+    GITHUB_TOKEN: ${{ inputs.github_token }}
+    GITHUB_REPO: ${{ github.repository }}
 
 branding:
   icon: 'file-text'

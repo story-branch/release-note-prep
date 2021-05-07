@@ -4,7 +4,7 @@ echo '::group:: Installing github_api gem'
 gem install -N github_api
 echo '::endgroup::'
 
-export CHANGELOG_GITHUB_TOKEN="${INPUT_GITHUB_TOKEN}"
+export CHANGELOG_GITHUB_TOKEN="${GITHUB_TOKEN}"
 echo '::group:: Running script'
 ruby /release_notes.rb
 echo '::endgroup::'
