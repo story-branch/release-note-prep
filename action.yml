@@ -2,8 +2,8 @@
 
 # GitHub will build an image from your Dockerfile,
 # and run commands in a new container using this image.
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Prepare Release Notes'
+description: 'Lists recently merged PRs and updates the PR description with the list'
 # used to pass inputs to the docker container. those will then be passed through
 # the args
 inputs:
@@ -21,3 +21,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
+
+branding:
+  icon: 'file-text'
+  color: 'purple'
