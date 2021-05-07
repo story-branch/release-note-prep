@@ -6,5 +6,5 @@ echo '::endgroup::'
 
 export CHANGELOG_GITHUB_TOKEN="${INPUT_GITHUB_TOKEN}"
 echo '::group:: Running script'
-ruby release_notes.rb
+ruby /release_notes.rb
 echo '::endgroup::'
