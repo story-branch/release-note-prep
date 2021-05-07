@@ -4,12 +4,9 @@ require 'github_api'
 
 token = ENV['CHANGELOG_GITHUB_TOKEN']
 full_repo = ENV['GITHUB_REPO']
-puts full_repo
 user, repo = full_repo.split('/')
-puts user
-puts repo
 
-github = Github.new(oauth_token: token, user: 'rpbaltazar', repo: 'release-note-prep')
+github = Github.new(oauth_token: token, user: user, repo: repo)
 prs = github.pull_requests.list(state: 'closed', sort: 'updated', direction: 'desc')
 
 last_release_index = prs.to_a.index do |pr|

@@ -22,7 +22,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    GITHUB_TOKEN: ${{ inputs.github_token }}
+    CHANGELOG_GITHUB_TOKEN: ${{ inputs.github_token }}
     GITHUB_REPO: ${{ inputs.github_repo}}
 
 branding:
