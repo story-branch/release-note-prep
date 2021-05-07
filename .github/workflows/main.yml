@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Run changelog
       id: prepare_changelog
-      uses: rpbaltazar/release-note-prep@v0.3
+      uses: rpbaltazar/release-note-prep@v0.4
       with:
         github_token: ${{ secrets.github_token }}
     # Use the output from the `hello` step
