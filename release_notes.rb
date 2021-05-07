@@ -15,7 +15,6 @@ prs_for_release_notes = prs[0...last_release_index].reject do |pr|
   pr.merged_at.nil?
 end
 
-puts 'Prepare Release'
 puts 'Enhancements'
 puts 'Fixes'
 puts 'Internal Changes'
