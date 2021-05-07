@@ -10,6 +10,9 @@ inputs:
   github_token:
     description: 'GITHUB_TOKEN'
     required: true
+  github_repo:
+    description: 'GITHUB_REPO'
+    required: true
 # In order for GitHub to recognize output variables, you must use a workflow
 # command in a specific syntax: echo "::set-output name=<output name>::<value>"
 outputs:
@@ -20,7 +23,7 @@ runs:
   image: 'Dockerfile'
   env:
     GITHUB_TOKEN: ${{ inputs.github_token }}
-    GITHUB_REPO: ${{ github.repository }}
+    GITHUB_REPO: ${{ inputs.github_repo}}
 
 branding:
   icon: 'file-text'
