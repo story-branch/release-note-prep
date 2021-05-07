@@ -13,4 +13,6 @@ jobs:
         github_repo: ${{ github.repository }}
     # Use the output from the `hello` step
     - name: Get the generated changelog
-      run: echo "Prepare release result ${{ steps.prepare_changelog.outputs.changelog }}"
+      run: |
+        echo "Prepare release result ${{ steps.prepare_changelog.outputs.changelog }}"
+        echo "Prepare release result ${{ env.RELEASE_NOTES }}"
