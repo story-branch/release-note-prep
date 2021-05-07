@@ -4,7 +4,7 @@ require 'github_api'
 
 token = ENV['CHANGELOG_GITHUB_TOKEN']
 
-github = Github.new(oauth_token: token, user: 'PerxTech', repo: 'perx-api')
+github = Github.new(oauth_token: token, user: 'rpbaltazar', repo: 'release-note-prep')
 prs = github.pull_requests.list(state: 'closed', sort: 'updated', direction: 'desc')
 
 last_release_index = prs.to_a.index do |pr|
