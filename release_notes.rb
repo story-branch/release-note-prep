@@ -11,14 +11,14 @@ last_release_index = prs.to_a.index do |pr|
   /Release/i =~ pr[:title]
 end
 
-prs_for_release_notes = prs[0...last_release_index].select do |pr|
-  !pr.merged_at.nil?
+prs_for_release_notes = prs[0...last_release_index].reject do |pr|
+  pr.merged_at.nil?
 end
 
-puts "Prepare Release"
-puts "Enhancements"
-puts "Fixes"
-puts "Internal Changes  "
+puts 'Prepare Release'
+puts 'Enhancements'
+puts 'Fixes'
+puts 'Internal Changes'
 prs_for_release_notes.each do |pr|
   puts "* #{pr[:title]} ##{pr[:number]}"
 end
