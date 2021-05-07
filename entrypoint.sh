@@ -6,8 +6,8 @@ echo '::endgroup::'
 
 echo '::group:: Running script'
 RELEASE_NOTES=$(ruby /release_notes.rb)
-echo "RELEASE_NOTES<<EOF" >> $GITHUBENV
-          echo "$RELEASE_NOTES" >> $GITHUBENV
-          echo "EOF" >> $GITHUBENV
+echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
+          echo "$RELEASE_NOTES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 echo "::set-output name=changelog::$(RELEASE_NOTES)"
 echo '::endgroup::'
