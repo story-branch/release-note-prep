@@ -12,7 +12,8 @@ jobs:
         github_token: ${{ secrets.github_token }}
         github_repo: ${{ github.repository }}
     # Use the output from the `hello` step
-    - name: Get the generated changelog
-      run: |
-        echo "Prepare release result ${{ steps.prepare_changelog.outputs.changelog }}"
-        echo "Prepare release result ${{ env.RELEASE_NOTES }}"
+    - name: Update PR description with RELEASE NOTES
+      uses: kt3k/update-pr-description@v1.0.1
+      with:
+        pr_body: ${{ env.RELEASE_NOTES }}"
+        github_token: ${{ secrets.github_token }}
