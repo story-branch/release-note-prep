@@ -3,6 +3,11 @@
 require 'github_api'
 
 token = ENV['CHANGELOG_GITHUB_TOKEN']
+full_repo = ENV['GITHUB_REPO']
+puts full_repo
+user, repo = full_repo.split('/')
+puts user
+puts repo
 
 github = Github.new(oauth_token: token, user: 'rpbaltazar', repo: 'release-note-prep')
 prs = github.pull_requests.list(state: 'closed', sort: 'updated', direction: 'desc')
@@ -11,7 +16,13 @@ last_release_index = prs.to_a.index do |pr|
   /Release/i =~ pr[:title]
 end
 
-prs_for_release_notes = prs[0...last_release_index].reject do |pr|
+prs_for_release_notes = if last_release_index.zero?
+                          prs.to_a
+                        else
+                          prs[0...last_release_index]
+                        end
+
+prs_for_release_notes = prs_for_release_notes.reject do |pr|
   pr.merged_at.nil?
 end
 
