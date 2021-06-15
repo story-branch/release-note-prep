@@ -7,7 +7,7 @@ full_repo = ENV['GITHUB_REPO']
 user, repo = full_repo.split('/')
 
 github = Github.new(oauth_token: token, user: user, repo: repo)
-prs = github.pull_requests.list(state: 'closed', sort: 'updated', direction: 'desc')
+prs = github.pull_requests.list(state: 'closed', sort: 'updated', direction: 'desc', per_page: 50)
 
 last_release_index = prs.to_a.index do |pr|
   /Release/i =~ pr[:title]
